@@ -1,0 +1,22 @@
+<div class="container pad-top">
+  <table class="table sudokutable">
+      <tr>
+          <td><h3>All Medium Sudokus</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>ID</td>
+          <td>Solving duration</td>
+          <td>Type of Sudoku</td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="sudoku in mediumSudokus">
+          <td>{{sudoku.id}}</td>
+          <td>{{sudoku.duration}} ms</td>
+          <td>{{sudoku.type}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewMediumSudoku({id:sudoku.id})">View</a>
+          </td>
+      </tr>
+  </table>
+</div>

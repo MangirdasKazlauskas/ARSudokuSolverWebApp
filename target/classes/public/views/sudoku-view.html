@@ -1,0 +1,25 @@
+<div class="container pad-top">
+  <table class="table sudokutable">
+      <h3>Details for Sudoku Nr. {{sudoku.id}}</h3>
+      <tr>
+          <td>ID</td>
+          <td>{{sudoku.id}}</td>
+      </tr>
+      <tr>
+          <td>Solving duration</td>
+          <td>{{sudoku.duration}} ms</td>
+      </tr>
+      <tr>
+          <td>Initial Sudoku</td>
+          <td><img src={{sudoku.initial}} height="250" width="250"/></td>
+      </tr>
+      <tr>
+          <td>Solved Sudoku</td>
+          <td><img src={{sudoku.solved}} height="250" width="250"/></td>
+      </tr>
+      <tr>
+          <td>Type of Sudoku</td>
+          <td>{{sudoku.type}}</td>
+      </tr>
+  </table>
+</div>
