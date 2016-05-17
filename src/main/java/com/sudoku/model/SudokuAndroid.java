@@ -2,9 +2,6 @@ package com.sudoku.model;
 
 import java.io.File;
 
-/**
- * Created by Mangirdas on 2016-05-17.
- */
 public class SudokuAndroid {
     private Long id;
     private Long duration;
@@ -14,7 +11,8 @@ public class SudokuAndroid {
 
     public SudokuAndroid(){}
 
-    public SudokuAndroid(Long duration, String type, File solvedSudoku, File initialSudoku) {
+    public SudokuAndroid(Long id, Long duration, String type, File solvedSudoku, File initialSudoku) {
+        this.id = id;
         this.duration = duration;
         this.type = type;
         this.solvedSudoku = solvedSudoku;
