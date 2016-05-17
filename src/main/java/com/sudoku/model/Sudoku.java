@@ -2,9 +2,6 @@ package com.sudoku.model;
 
 import javax.persistence.*;
 
-/**
- * Created by Mangirdas on 2016-05-15.
- */
 @Entity
 public class Sudoku {
     @Id

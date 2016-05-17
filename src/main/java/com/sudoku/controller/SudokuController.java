@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by Mangirdas on 2016-05-15.
- */
 @RestController
 @RequestMapping("api/v1/")
 public class SudokuController {
@@ -25,12 +22,9 @@ public class SudokuController {
         List<Sudoku> tempRep = sudokuRepository.findAll();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
-        for (int i = 0; i < tempRep.size(); i++){
-            Sudoku temp = tempRep.get(i);
-            if (Objects.equals(temp.getType(), "EASY")){
+        for(Sudoku temp : tempRep)
+            if (Objects.equals(temp.getType(), "EASY"))
                 newRep.add(j++, temp);
-            }
-        }
         return newRep;
     }
 
@@ -39,12 +33,10 @@ public class SudokuController {
         List<Sudoku> tempRep = sudokuRepository.findAll();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
-        for (int i = 0; i < tempRep.size(); i++){
-            Sudoku temp = tempRep.get(i);
-            if (Objects.equals(temp.getType(), "MEDIUM")){
+        for (Sudoku temp : tempRep)
+            if (Objects.equals(temp.getType(), "MEDIUM"))
                 newRep.add(j++, temp);
-            }
-        }
+
         return newRep;
     }
     @RequestMapping(value = "hardSudokus", method = RequestMethod.GET)
@@ -52,12 +44,9 @@ public class SudokuController {
         List<Sudoku> tempRep = sudokuRepository.findAll();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
-        for (int i = 0; i < tempRep.size(); i++){
-            Sudoku temp = tempRep.get(i);
-            if (Objects.equals(temp.getType(), "HARD")){
+        for (Sudoku temp : tempRep)
+            if (Objects.equals(temp.getType(), "HARD"))
                 newRep.add(j++, temp);
-            }
-        }
         return newRep;
     }
 

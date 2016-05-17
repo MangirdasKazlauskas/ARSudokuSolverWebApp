@@ -14,10 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.dropbox.core.*;
 import java.io.*;
 
-/**
- * Hello world!
- *
- */
 @SpringBootApplication
 public class App 
 {

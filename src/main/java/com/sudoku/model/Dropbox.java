@@ -6,11 +6,7 @@ import com.dropbox.core.v1.DbxEntry;
 import com.dropbox.core.v1.DbxWriteMode;
 
 import java.io.*;
-import java.util.Locale;
 
-/**
- * Created by Mangirdas on 2016-05-17.
- */
 public class Dropbox {
     private static final String ACCESS_TOKEN = "g3x8aRWB0rAAAAAAAAAACw9agTESWiTCYSrxvRzTM80ig2Y7p35QGUSqRScuALZv";
 
