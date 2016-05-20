@@ -2,7 +2,6 @@ package com.sudoku.model;
 
 import javax.persistence.*;
 
-@Entity
 public class SudokuAndroid {
     private Long duration;
     private String initial;
