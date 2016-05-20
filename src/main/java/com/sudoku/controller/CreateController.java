@@ -1,6 +1,7 @@
 package com.sudoku.controller;
 
 import com.sudoku.model.Sudoku;
+import com.sudoku.model.SudokuAndroid;
 import com.sudoku.repository.SudokuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,21 +14,13 @@ public class CreateController {
     private SudokuRepository repository;
 
     @RequestMapping(value = "/create")
-    public String create(@RequestBody Sudoku sudoku){
+    public String create(@RequestBody SudokuAndroid sudokuAndroid){
+        Long duration = sudokuAndroid.getDuration();
+        String initialUrl = sudokuAndroid.getInitial();
+        String solvedUrl = sudokuAndroid.getSolved();
+        String type = sudokuAndroid.getType();
+        Sudoku sudoku = new Sudoku(duration, initialUrl, solvedUrl, type);
         repository.saveAndFlush(sudoku);
-        return "Sudoku succesfully created! (id = " + sudoku.getId() + ")";
+        return "Sudoku succesfully created! (duration = " + sudoku.getDuration() + ")";
     }
-
-    /*@RequestMapping(value = "/create")
-    public String test(){
-        System.out.println("INVOKED");
-        Sudoku sudoku = new Sudoku();
-        // int id = sudokuRepository.findAll().size() + 1;
-        sudoku.setInitial("Test");
-        sudoku.setSolved("Test");
-        sudoku.setType("EASY");
-        sudoku.setDuration((long)25);
-        repository.saveAndFlush(sudoku);
-        return "Sudoku succesfully created! (id = " + sudoku.getId() + ")";
-    }*/
 }

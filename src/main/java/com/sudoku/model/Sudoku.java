@@ -14,8 +14,7 @@ public class Sudoku {
 
     public Sudoku(){}
 
-    public Sudoku(Long id, Long duration, String solved, String initial, String type) {
-        this.id = id;
+    public Sudoku(Long duration, String solved, String initial, String type) {
         this.duration = duration;
         this.solved = solved;
         this.initial = initial;

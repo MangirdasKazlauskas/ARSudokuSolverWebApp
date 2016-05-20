@@ -21,7 +21,7 @@ public class Dropbox {
         return dbxClient;
     }
 
-    public Sudoku uploadFileToDropbox(SudokuAndroid file) throws IOException, DbxException {
+    /*public Sudoku uploadFileToDropbox(SudokuAndroid file) throws IOException, DbxException {
         Sudoku sudoku = new Sudoku();
         File sudokuInitial = new File(file.getId() + ".png");
         File sudokuSolved = new File(file.getId() + "r.png");
@@ -35,8 +35,8 @@ public class Dropbox {
 
             sudoku.setInitial((dbxClient.createShareableUrl("/" + file.getId() + ".png")) + "&raw=1");
             sudoku.setSolved((dbxClient.createShareableUrl("/" + file.getId() + "r.png")) + "&raw=1");
-            /*System.out.println("Uploaded: " + uploadInitial.toString());
-            System.out.println("Uploaded: " + uploadSolved.toString());*/
+            *//*System.out.println("Uploaded: " + uploadInitial.toString());
+            System.out.println("Uploaded: " + uploadSolved.toString());*//*
             sudoku.setDuration(file.getDuration());
             sudoku.setType(file.getType());
 
@@ -45,5 +45,5 @@ public class Dropbox {
             fisSolved.close();
         }
         return sudoku;
-    }
+    }*/
 }

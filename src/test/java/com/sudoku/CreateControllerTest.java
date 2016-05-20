@@ -2,6 +2,7 @@ package com.sudoku;
 
 import com.sudoku.controller.CreateController;
 import com.sudoku.model.Sudoku;
+import com.sudoku.model.SudokuAndroid;
 import com.sudoku.repository.SudokuRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,10 +25,10 @@ public class CreateControllerTest {
 
     @Test
     public void testCreate(){
-        Sudoku s = new Sudoku();
-        s.setId(1L);
+        SudokuAndroid s = new SudokuAndroid();
+        s.setDuration(1L);
 
         String response = cc.create(s);
-        assertThat("Sudoku succesfully created! (id = " + s.getId() + ")", is(response));
+        assertThat("Sudoku succesfully created! (duration = " + s.getDuration() + ")", is(response));
     }
 }

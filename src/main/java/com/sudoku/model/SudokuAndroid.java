@@ -1,30 +1,21 @@
 package com.sudoku.model;
 
-import java.io.File;
+import javax.persistence.*;
 
+@Entity
 public class SudokuAndroid {
-    private Long id;
     private Long duration;
-    private File initialSudoku;
-    private File solvedSudoku;
+    private String initial;
+    private String solved;
     private String type;
 
     public SudokuAndroid(){}
 
-    public SudokuAndroid(Long id, Long duration, String type, File solvedSudoku, File initialSudoku) {
-        this.id = id;
+    public SudokuAndroid(Long duration, String solved, String initial, String type) {
         this.duration = duration;
+        this.solved = solved;
+        this.initial = initial;
         this.type = type;
-        this.solvedSudoku = solvedSudoku;
-        this.initialSudoku = initialSudoku;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getDuration() {
@@ -35,27 +26,15 @@ public class SudokuAndroid {
         this.duration = duration;
     }
 
-    public File getInitialSudoku() {
-        return initialSudoku;
-    }
+    public String getInitial() { return initial; }
 
-    public void setInitialSudoku(File initialSudoku) {
-        this.initialSudoku = initialSudoku;
-    }
+    public void setInitial(String initial) { this.initial = initial; }
 
-    public File getSolvedSudoku() {
-        return solvedSudoku;
-    }
+    public String getSolved() { return solved; }
 
-    public void setSolvedSudoku(File solvedSudoku) {
-        this.solvedSudoku = solvedSudoku;
-    }
+    public void setSolved(String solved) { this.solved = solved; }
 
-    public String getType() {
-        return type;
-    }
+    public String getType() { return type; }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public void setType(String type) { this.type = type; }
 }
