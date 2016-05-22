@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fdaebc94-82f5-401a-b1fa-304bd6cc1a38" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/sudoku/SudokuControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/sudoku/SudokuControllerTest.java" />
     </list>
     <ignored path="SudokuSolverWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -904,7 +903,7 @@
       <workItem from="1463833074100" duration="1786000" />
       <workItem from="1463913319152" duration="4664000" />
       <workItem from="1463918017928" duration="2258000" />
-      <workItem from="1463923785395" duration="3487000" />
+      <workItem from="1463923785395" duration="3736000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1463519764002</created>
@@ -978,7 +977,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463920036108</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added some new tests to SudokuControllerTest.java">
+      <created>1463927451126</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1463927451126</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1014,7 +1019,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78039000" />
+    <option name="totallyTimeSpent" value="78288000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1077,7 +1082,8 @@
     <MESSAGE value="Removed Flyway migration dependencies, properties , etc." />
     <MESSAGE value="Added controller test" />
     <MESSAGE value="Create connection to pages tests,  added one more SudokuControllerTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create connection to pages tests,  added one more SudokuControllerTest" />
+    <MESSAGE value="Added some new tests to SudokuControllerTest.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some new tests to SudokuControllerTest.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1516,7 +1522,7 @@
         <state vertical-scroll-proportion="1.0">
           <caret line="53" column="74" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
