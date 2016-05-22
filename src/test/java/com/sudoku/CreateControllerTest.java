@@ -1,6 +1,7 @@
 package com.sudoku;
 
 import com.sudoku.controller.CreateController;
+import com.sudoku.model.Sudoku;
 import com.sudoku.model.SudokuAndroid;
 import com.sudoku.repository.SudokuRepository;
 import org.junit.Before;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.internal.util.StringJoiner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -29,5 +31,13 @@ public class CreateControllerTest {
 
         String response = cc.create(s);
         assertThat("Sudoku succesfully created! (duration = " + s.getDuration() + ")", is(response));
+    }
+
+    @Test
+    public void testCreateEmpty(){
+        SudokuAndroid s = new SudokuAndroid();
+
+        String response = cc.create(s);
+        assertThat("Sudoku succesfully created! (duration = " + null + ")", is(response));
     }
 }
