@@ -9,6 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.verify;
@@ -37,5 +40,19 @@ public class SudokuControllerTest {
         verify(sudokuRepository).findOne(1L);
 
         assertThat(sudoku.getId(), is(1L));
+    }
+    @Test
+    public void testSudokuListEasy(){
+        Sudoku s = new Sudoku();
+        s.setType("EASY");
+        List<Sudoku> listEasy = new ArrayList<Sudoku>();
+        listEasy.add(s);
+        when(sudokuRepository.findAll()).thenReturn(listEasy);
+
+        List<Sudoku> testList = sc.listEasy();
+
+        verify(sudokuRepository).findAll();
+
+        assertThat(testList.get(0).getType(), is("EASY"));
     }
 }

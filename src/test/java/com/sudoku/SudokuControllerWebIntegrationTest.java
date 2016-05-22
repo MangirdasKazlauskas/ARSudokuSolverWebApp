@@ -26,13 +26,11 @@ public class SudokuControllerWebIntegrationTest {
         RestTemplate restTemplate = new TestRestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/api/v1/easySudokus", String.class);
 
-        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode responseJson = objectMapper.readTree(response.getBody());
 
         assertThat(responseJson.isMissingNode(), is(false));
-        // Duomenu baze nera tuscia
+        // Duomenu baze nera tuscia, reikia tureti bent viena irasa su type "EASY"
         assertThat(responseJson.toString(), not(equalTo("[]")));
     }
     @Test
@@ -40,13 +38,11 @@ public class SudokuControllerWebIntegrationTest {
         RestTemplate restTemplate = new TestRestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/api/v1/mediumSudokus", String.class);
 
-        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode responseJson = objectMapper.readTree(response.getBody());
 
         assertThat(responseJson.isMissingNode(), is(false));
-        // Duomenu baze nera tuscia
+        // Duomenu baze nera tuscia, reikia tureti bent viena irasa su type "MEDIUM"
         assertThat(responseJson.toString(), not(equalTo("[]")));
     }
     @Test
@@ -54,13 +50,11 @@ public class SudokuControllerWebIntegrationTest {
         RestTemplate restTemplate = new TestRestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/api/v1/hardSudokus", String.class);
 
-        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode responseJson = objectMapper.readTree(response.getBody());
 
         assertThat(responseJson.isMissingNode(), is(false));
-        // Duomenu baze nera tuscia
+        // Duomenu baze nera tuscia, reikia tureti bent viena irasa su type "HARD"
         assertThat(responseJson.toString(), not(equalTo("[]")));
     }
 }

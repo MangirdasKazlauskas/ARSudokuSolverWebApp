@@ -19,7 +19,7 @@ public class SudokuController {
     private SudokuRepository sudokuRepository;
 
     @RequestMapping(value = "easySudokus", method = RequestMethod.GET)
-    public List<Sudoku> list(){
+    public List<Sudoku> listEasy(){
         List<Sudoku> tempRep = sudokuRepository.findAll();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
