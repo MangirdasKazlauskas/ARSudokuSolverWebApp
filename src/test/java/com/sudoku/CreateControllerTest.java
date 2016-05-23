@@ -1,6 +1,7 @@
 package com.sudoku;
 
 import com.sudoku.controller.CreateController;
+import com.sudoku.model.Sudoku;
 import com.sudoku.model.SudokuAndroid;
 import com.sudoku.repository.SudokuRepository;
 import org.junit.Before;
@@ -27,15 +28,15 @@ public class CreateControllerTest {
         SudokuAndroid s = new SudokuAndroid();
         s.setDuration(1L);
 
-        String response = cc.create(s);
-        assertThat("Sudoku succesfully created! (duration = " + s.getDuration() + ")", is(response));
+        Sudoku response = cc.create(s);
+        assertThat(s.getDuration(), is(response.getDuration()));
     }
 
     @Test
     public void testCreateEmpty(){
         SudokuAndroid s = new SudokuAndroid();
 
-        String response = cc.create(s);
-        assertThat("Sudoku succesfully created! (duration = " + null + ")", is(response));
+        Sudoku response = cc.create(s);
+        assertThat(s.getDuration(), is(response.getDuration()));
     }
 }

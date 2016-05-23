@@ -14,13 +14,13 @@ public class CreateController {
     private SudokuRepository repository;
 
     @RequestMapping(value = "/create")
-    public String create(@RequestBody SudokuAndroid sudokuAndroid){
+    public Sudoku create(@RequestBody SudokuAndroid sudokuAndroid){
         Long duration = sudokuAndroid.getDuration();
         String initialUrl = sudokuAndroid.getInitial();
         String solvedUrl = sudokuAndroid.getSolved();
         String type = sudokuAndroid.getType();
         Sudoku sudoku = new Sudoku(duration, initialUrl, solvedUrl, type);
         repository.saveAndFlush(sudoku);
-        return "Sudoku succesfully created! (duration = " + sudoku.getDuration() + ")";
+        return sudoku;
     }
 }
