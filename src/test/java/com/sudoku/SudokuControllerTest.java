@@ -12,8 +12,9 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -41,6 +42,7 @@ public class SudokuControllerTest {
 
         assertThat(sudoku.getId(), is(1L));
     }
+
     @Test
     public void testSudokuGetNull(){
         when(sudokuRepository.findOne(1L)).thenReturn(null);
