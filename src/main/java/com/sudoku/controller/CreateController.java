@@ -19,7 +19,7 @@ public class CreateController {
         String initialUrl = sudokuAndroid.getInitial();
         String solvedUrl = sudokuAndroid.getSolved();
         String type = sudokuAndroid.getType();
-        Sudoku sudoku = new Sudoku(duration, initialUrl, solvedUrl, type);
+        Sudoku sudoku = new Sudoku(duration, solvedUrl, initialUrl, type);
         sudokuService.saveAndFlushSudoku(sudoku);
         return sudoku;
     }
