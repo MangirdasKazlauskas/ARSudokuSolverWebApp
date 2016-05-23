@@ -2,7 +2,7 @@ package com.sudoku;
 
 import com.sudoku.controller.SudokuController;
 import com.sudoku.model.Sudoku;
-import com.sudoku.repository.SudokuRepository;
+import com.sudoku.service.SudokuService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -23,7 +23,7 @@ public class SudokuControllerTest {
     private SudokuController sc;
 
     @Mock
-    private SudokuRepository sudokuRepository;
+    private SudokuService sudokuService;
 
     @Before
     public void init(){
@@ -34,22 +34,22 @@ public class SudokuControllerTest {
     public void testSudokuGet(){
         Sudoku s = new Sudoku();
         s.setId(1L);
-        when(sudokuRepository.findOne(1L)).thenReturn(s);
+        when(sudokuService.findOneSudoku(1L)).thenReturn(s);
 
         Sudoku sudoku = sc.get(1L);
 
-        verify(sudokuRepository).findOne(1L);
+        verify(sudokuService).findOneSudoku(1L);
 
         assertThat(sudoku.getId(), is(1L));
     }
 
     @Test
     public void testSudokuGetNull(){
-        when(sudokuRepository.findOne(1L)).thenReturn(null);
+        when(sudokuService.findOneSudoku(1L)).thenReturn(null);
 
         Sudoku sudoku = sc.get(1L);
 
-        verify(sudokuRepository).findOne(1L);
+        verify(sudokuService).findOneSudoku(1L);
 
         assertThat(sudoku, is(nullValue()));
     }
@@ -59,11 +59,11 @@ public class SudokuControllerTest {
         s.setType("EASY");
         List<Sudoku> list = new ArrayList<Sudoku>();
         list.add(s);
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listEasy();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
 
         assertThat(testList.get(0).getType(), is("EASY"));
     }
@@ -73,11 +73,11 @@ public class SudokuControllerTest {
         s.setType("MEDIUM");
         List<Sudoku> list = new ArrayList<Sudoku>();
         list.add(s);
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listMedium();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
 
         assertThat(testList.get(0).getType(), is("MEDIUM"));
     }
@@ -87,11 +87,11 @@ public class SudokuControllerTest {
         s.setType("HARD");
         List<Sudoku> list = new ArrayList<Sudoku>();
         list.add(s);
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listHard();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
 
         assertThat(testList.get(0).getType(), is("HARD"));
     }
@@ -107,11 +107,11 @@ public class SudokuControllerTest {
             s.setType("HARD");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listEasy();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo ir 5 type HARD Sudoku, bet ideti buvo tik 5 EASY, todel ir grazina 5
         assertThat(testList.size(), is(5));
     }
@@ -127,11 +127,11 @@ public class SudokuControllerTest {
             s.setType("EASY");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testMedium = sc.listMedium();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo ir 10 type HARD Sudoku, bet ideti buvo tik 10 MEDIUM, todel ir grazina 10
         assertThat(testMedium.size(), is(10));
     }
@@ -150,11 +150,11 @@ public class SudokuControllerTest {
             s.setType("EASY");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listHard();
 
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo ir 12 kitokio tipo Sudoku, bet ideti buvo tik 6 HARD
         assertThat(testList.size(), is(6));
     }
@@ -170,10 +170,10 @@ public class SudokuControllerTest {
             s.setType("MEDIUM");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listEasy();
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo 20 kitokio tipo Sudoku, bet EASY buvo 0 (tuscias sarasas)
         assertThat(testList.isEmpty(), is(Boolean.TRUE));
     }
@@ -189,10 +189,10 @@ public class SudokuControllerTest {
             s.setType("EASY");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listMedium();
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo 200 kitokio tipo Sudoku, bet MEDIUM buvo 0 (tuscias sarasas)
         assertThat(testList.isEmpty(), is(Boolean.TRUE));
     }
@@ -208,10 +208,10 @@ public class SudokuControllerTest {
             s.setType("MEDIUM");
             list.add(s);
         }
-        when(sudokuRepository.findAll()).thenReturn(list);
+        when(sudokuService.findAllSudokus()).thenReturn(list);
 
         List<Sudoku> testList = sc.listHard();
-        verify(sudokuRepository).findAll();
+        verify(sudokuService).findAllSudokus();
         // Nepriklausomai nuo to, kad sarase buvo 100 kitokio tipo Sudoku, bet HARD buvo 0 (tuscias sarasas)
         assertThat(testList.isEmpty(), is(Boolean.TRUE));
     }

@@ -3,7 +3,7 @@ package com.sudoku;
 import com.sudoku.controller.CreateController;
 import com.sudoku.model.Sudoku;
 import com.sudoku.model.SudokuAndroid;
-import com.sudoku.repository.SudokuRepository;
+import com.sudoku.service.SudokuService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -12,13 +12,14 @@ import org.mockito.MockitoAnnotations;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 public class CreateControllerTest {
     @InjectMocks
     private CreateController cc;
 
     @Mock
-    private SudokuRepository sudokuRepository;
+    private SudokuService sudokuService;
 
     @Before
     public void init(){ MockitoAnnotations.initMocks(this); }
@@ -29,6 +30,7 @@ public class CreateControllerTest {
         s.setDuration(1L);
 
         Sudoku response = cc.create(s);
+
         assertThat(s.getDuration(), is(response.getDuration()));
     }
 
@@ -37,6 +39,7 @@ public class CreateControllerTest {
         SudokuAndroid s = new SudokuAndroid();
 
         Sudoku response = cc.create(s);
-        assertThat(s.getDuration(), is(response.getDuration()));
+
+        assertThat(response.getDuration(), is(nullValue()));
     }
 }

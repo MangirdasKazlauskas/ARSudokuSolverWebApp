@@ -1,7 +1,7 @@
 package com.sudoku.controller;
 
 import com.sudoku.model.Sudoku;
-import com.sudoku.repository.SudokuRepository;
+import com.sudoku.service.SudokuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +15,13 @@ import java.util.Objects;
 @RestController
 @RequestMapping("api/v1/")
 public class SudokuController {
+
     @Autowired
-    private SudokuRepository sudokuRepository;
+    private SudokuService sudokuService;
 
     @RequestMapping(value = "easySudokus", method = RequestMethod.GET)
     public List<Sudoku> listEasy(){
-        List<Sudoku> tempRep = sudokuRepository.findAll();
+        List<Sudoku> tempRep = sudokuService.findAllSudokus();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
         for(Sudoku temp : tempRep)
@@ -31,7 +32,7 @@ public class SudokuController {
 
     @RequestMapping(value = "mediumSudokus", method = RequestMethod.GET)
     public List<Sudoku> listMedium(){
-        List<Sudoku> tempRep = sudokuRepository.findAll();
+        List<Sudoku> tempRep = sudokuService.findAllSudokus();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
         for (Sudoku temp : tempRep)
@@ -42,7 +43,7 @@ public class SudokuController {
     }
     @RequestMapping(value = "hardSudokus", method = RequestMethod.GET)
     public List<Sudoku> listHard(){
-        List<Sudoku> tempRep = sudokuRepository.findAll();
+        List<Sudoku> tempRep = sudokuService.findAllSudokus();
         List<Sudoku> newRep = new ArrayList<Sudoku>();
         int j = 0;
         for (Sudoku temp : tempRep)
@@ -53,7 +54,7 @@ public class SudokuController {
 
     @RequestMapping(value = {"easySudokus/{id}", "mediumSudokus/{id}", "hardSudokus/{id}"}, method = RequestMethod.GET)
     public Sudoku get(@PathVariable Long id){
-        return sudokuRepository.findOne(id);
+        return sudokuService.findOneSudoku(id);
     }
 
 }
